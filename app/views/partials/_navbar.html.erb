@@ -16,8 +16,12 @@
         <li><a href="#">Contact</a></li>
       </ul>
       <ul class="nav navbar-nav navbar-right">
-        <%if user_signed_in? %>
-          <li><%= link_to "Logout", destroy_user_session_path, method: :delete, class: "fa fa-sign-out" %></li>
+        <% if @article %>
+          <%if user_signed_in? %>
+            <li><%= link_to "Logout", destroy_user_session_path, method: :delete, class: "fa fa-sign-out" %></li>
+          <%else%>
+            <li><%= link_to "Login", new_user_session_path %></li>
+          <%end%>
         <%end%>
       </ul>
     </div>
