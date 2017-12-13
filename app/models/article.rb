@@ -12,7 +12,8 @@ class Article < ApplicationRecord
   private
 
   def set_visits_count
-    self.visits_count = 0
+    self.visits_count ||= 0 #Si le hubiese puesto create era sin el ||, pero como puse el save
+    #es para cuando no esté creado el visits_count así el || es... si es nulo, dale 0, sino nada
   end
-
+    
 end

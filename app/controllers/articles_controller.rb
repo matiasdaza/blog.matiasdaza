@@ -11,6 +11,8 @@ class ArticlesController < ApplicationController
   end
   #/articles/:id
   def show
+    @article.update_visits_count #Esto es para ir aumentando en uno las visitas! - revisar article.rb
+
   end
   #GET /articles/new
   def new
