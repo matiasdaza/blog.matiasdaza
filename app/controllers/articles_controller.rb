@@ -13,6 +13,26 @@ class ArticlesController < ApplicationController
     @article = Article.new
   end
 
+  #delete /articles/:id
+  def destroy
+    @article = Article.find(params[:id])
+    @article.destroy
+    redirect_to action: :index
+  end
+
+  def edit #METODO /articles/:id/edit
+    @article = Article.find(params[:id])
+  end
+
+  def update
+    #@article = Article.find(params[:id])
+    if @article.update(article_params)
+      redirect_to @article
+    else
+      render :edit
+    end
+  end
+
   #POST /articles
   def create
     @article = Article.new(article_params)
@@ -23,17 +43,12 @@ class ArticlesController < ApplicationController
     end
   end
 
-  #Delete /articles/:id
-  def destroy
-    #@article = Article.find(params[:id])
-    @article.destroy
-    redirect_to articles_path
-  end
+
 
   private
 
   def set_article
-    @article = Article.find(params[:id])
+    #@article = Article.find(params[:id])
   end
 
   def article_params

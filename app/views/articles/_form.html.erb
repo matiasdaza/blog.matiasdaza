@@ -1,0 +1,21 @@
+<div class="box">
+  <h1><%=name%> artículo<h1> <!-- Name es una variable local para definir la acción -->
+  <%= form_for(@article) do |f| %>
+    <% @article.errors.full_messages.each do |message| %>
+      <div class="errors">
+        ! <%=message%>
+      </div>
+    <%end%>
+    <div class="field">
+      <%= f.text_field :title, placeholder: "Título", class: "form-control"%>
+    </div>
+
+    <div class="field">
+      <%= f.text_field :body, placeholder: "Escribe aquí el artículo", style:"height:100px", class: "form-control"%>
+    </div>
+
+    <div class="field">
+      <%= f.submit "Guardar", class: "btn be-red white large-padding"%>
+    </div>
+  <% end %>
+</div>
