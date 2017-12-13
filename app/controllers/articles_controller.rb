@@ -35,7 +35,7 @@ class ArticlesController < ApplicationController
 
   #POST /articles
   def create
-    @article = Article.new(article_params)
+    @article = current_user.articles.new(article_params)
     if @article.save #Si pasaron las validaciones, redirecciona, sinó, nos devuelve.
       redirect_to @article
     else
