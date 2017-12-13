@@ -1,4 +1,9 @@
 class ArticlesController < ApplicationController
+
+  before_action :authenticate_user!, except: [:show, :index] #Para autenticar usuario
+  before_action :set_article, except: [:index, :new, :create] #Para reutilizar lo contenido en set_article
+
+
   #/articles
   def index
     @article = Article.all #Index tendrá todos los registros de la tabla articles
@@ -6,7 +11,6 @@ class ArticlesController < ApplicationController
   end
   #/articles/:id
   def show
-    @article = Article.find(params[:id])
   end
   #GET /articles/new
   def new
@@ -15,13 +19,11 @@ class ArticlesController < ApplicationController
 
   #delete /articles/:id
   def destroy
-    @article = Article.find(params[:id])
     @article.destroy
     redirect_to action: :index
   end
 
   def edit #METODO /articles/:id/edit
-    @article = Article.find(params[:id])
   end
 
   def update
@@ -48,7 +50,7 @@ class ArticlesController < ApplicationController
   private
 
   def set_article
-    #@article = Article.find(params[:id])
+    @article = Article.find(params[:id])
   end
 
   def article_params
