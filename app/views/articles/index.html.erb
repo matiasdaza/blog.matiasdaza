@@ -2,8 +2,12 @@
   <!--<h2> <%= article.title %> </h2>  Ahora ya no es una variable de clase (@), sino que de la variable article de arrib -->
   <h2> <%= link_to article.title, article %> </h2> <!-- esto lo hacemos para que al tocar el titulo redireccione a donde está solo ese articulo -->
   <div>
-    <p> <%= article.body %> - <%= link_to "Eliminar", article, method: :delete, data: { confirm: 'Estas seguro que deseas eliminar este artículo?' }%></p>
-
+    <p> <%= article.body %>
+      <%if user_signed_in? %>
+        <% if article.user_id = current_user.id %>
+          - <%= link_to "Eliminar", article, method: :delete, data: { confirm: 'Estas seguro que deseas eliminar este artículo?' }%>
+        <% end %></p>
+      <%end %>
   </div>
 
 <% end %>

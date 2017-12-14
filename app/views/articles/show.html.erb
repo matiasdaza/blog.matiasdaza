@@ -4,9 +4,11 @@
   <small> Escrito por <%= @article.user.email %> - Visitas: <%= @article.visits_count%> </small><br><br>
 
   <p> <%= @article.body %> </p>
-
-  <div>
-    <%= link_to "Editar", edit_article_path(@article) %>
-  </div>
-
+  <%if user_signed_in? %>
+    <% if @article.user_id = current_user.id %>
+      <div>
+        <%= link_to "Editar", edit_article_path(@article) %>
+      </div>
+    <%end%>
+  <%end%>
 </div>
