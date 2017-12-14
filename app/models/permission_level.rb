@@ -1,0 +1,2 @@
+class PermissionLevel < ApplicationRecord
+end

@@ -4,7 +4,7 @@
   <div>
     <p> <%= article.body %>
       <%if user_signed_in? %>
-        <% if article.user_id = current_user.id %>
+        <% if article.user.permission_level_id == current_user.permission_level_id %>
           - <%= link_to "Eliminar", article, method: :delete, data: { confirm: 'Estas seguro que deseas eliminar este artículo?' }%>
         <% end %></p>
       <%end %>
