@@ -1,0 +1,24 @@
+<%= form_for([@article, @comment], remote: true,
+  html: {id: "comments-form", "data-type": :"json"}) do |form| %> <!-- el remote_es para enviar parametros por ajax -->
+
+  <% if @comment.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(comment.errors.count, "error") %> prohibited this comment from being saved:</h2>
+
+      <ul>
+      <% comment.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= form.label :body %><br>
+    <%= form.text_area :body, id: :comment_body %>
+  </div>
+
+  <div class="actions">
+    <%= form.submit %>
+  </div>
+<% end %>
