@@ -19,16 +19,18 @@ html {
   position: relative;
 }
 body {
-  margin: 0;
-  margin-bottom: 40px;
+  margin: 0 0 65px;
+  padding-bottom: 50px;
 }
 footer {
+/*Footer fijo y siempre visible */
   background-color: #eee;
-  padding: 20px;
-  position: absolute;
-  bottom: 0;
+  padding: 10px;
+  padding-top: 20px;
   width: 100%;
-  height: 140px;
+  bottom: 0;
+  position:fixed;
+  height: 100px;
 }
 
 a:focus, a:hover {
@@ -44,7 +46,7 @@ a {
 }
 
 .Principal{
-  min-height: 50vh;
+  min-height: 70vh;
   padding-top: 50px;
   padding-bottom: 30px;
   margin-bottom: 30px;
