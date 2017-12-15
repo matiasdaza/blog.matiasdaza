@@ -1,5 +1,5 @@
-<%= form_for([@article, @comment], remote: true,
-  html: {id: "comments-form", "data-type": :"json"}) do |form| %> <!-- el remote_es para enviar parametros por ajax -->
+<%= form_for([@article, @comment], remote: true, html:{id: "comments-form"}) do |form| %>
+<!-- Según el tutoríal el html además había que agregar el data-type, en rails 5 no es necesario! -->
 
   <% if @comment.errors.any? %>
     <div id="error_explanation">

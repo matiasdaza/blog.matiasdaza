@@ -2,7 +2,7 @@ Rails.application.routes.draw do
 
 
   resources :articles do #Generará todas las rutas del CRUD
-    resources :comments #Hacemos esto para que no existan los comentarios por si solo, sinó que solo para los artículos
+    resources :comments, only: [:create, :update, :destroy, :show] #Hacemos esto para que no existan los comentarios por si solo, sinó que solo para los artículos
   end
   devise_for :users
 
