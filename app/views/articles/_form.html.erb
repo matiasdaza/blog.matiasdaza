@@ -10,6 +10,10 @@
       <%= f.text_field :title, placeholder: "Título", class: "form-control"%>
     </div>
 
+    <div>
+      <small>Portada:<%= f.file_field :cover %></small>
+    </div>
+
     <div class="field">
       <%= f.text_field :body, placeholder: "Escribe aquí el artículo", style:"height:100px", class: "form-control"%>
     </div>

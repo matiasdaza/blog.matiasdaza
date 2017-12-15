@@ -3,6 +3,10 @@
 
   <small> Escrito por <%= @article.user.email %> - Visitas: <%= @article.visits_count%> </small><br><br>
 
+  <div class="field">
+    <%= image_tag @article.cover.url(:thumb) %>
+  </div>
+
   <p> <%= @article.body %> </p>
   <%if user_signed_in? %>
     <% if @article.user.permission_level_id == current_user.permission_level_id %>

@@ -56,7 +56,7 @@ class ArticlesController < ApplicationController
   end
 
   def article_params
-    params.require(:article).permit(:title, :body)
+    params.require(:article).permit(:title, :body, :cover)
     #Esto es por seguridad, para que no llenen datos como la cantidad de visitas, que se hace solo.
   end
 
