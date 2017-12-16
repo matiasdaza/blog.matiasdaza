@@ -9,7 +9,7 @@ class Article < ApplicationRecord
 
   #paperclip
 
-  has_attached_file :cover, styles: {medium: "1280x720", thumb:"750x300"}
+  has_attached_file :cover, styles: {medium: "1280x720", thumb:"750x300", mini: "900x300"}
   validates_attachment_content_type :cover, content_type: /\Aimage\/.*\Z/#por seguridad
 
   def update_visits_count

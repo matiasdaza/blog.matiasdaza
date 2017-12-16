@@ -1,29 +1,54 @@
 <div class="container">
-  <h1> <%= @article.title %> </h1>
+  <div class="row">
 
-  <small> Escrito por <%= @article.user.email %> - Visitas: <%= @article.visits_count%> </small><br><br>
+    <!-- Blog Entries Column -->
+    <div class="col-md-8">
+      <!-- Title -->
+      <h1 class="mt-4"><%= @article.title %></h1>
 
-  <div class="field">
-    <%= image_tag @article.cover.url(:thumb) %>
-  </div>
+      <!-- Author -->
+      <p class="lead">
+        by
+        <a class="autor" href="#"> <%= @article.user.email %></a>
+      </p>
 
-  <p> <%= @article.body %> </p>
-  <%if user_signed_in? %>
-    <% if @article.user.permission_level_id == current_user.permission_level_id %>
-      <div>
-        <%= link_to "Editar", edit_article_path(@article) %>
-      </div>
-    <%end%>
-    <div class="field">
-    <h3>Comentarios</h3>
-    <%= render "comments/form" %>
-    <ul id="comments-box">
-      <% @article.comments.each do |comment| %>
-        <li>
-          * <%= comment.body%> - <%=comment.user.email %>
-        </li>
+      <hr>
+
+      <!-- Date/Time -->
+      <p><%= @article.user.created_at %></p>
+
+      <hr>
+        <%= image_tag @article.cover.url(:thumb), class: "img-fluid rounded" %>
+      <hr>
+      <p class="lead"><%= @article.body %></p>
+      <%if user_signed_in? %>
+        <% if @article %>
+          <div>
+            <%= link_to "Editar", edit_article_path(@article) %>
+          </div>
+          <hr>
+        <%end%>
+        <%= render "comments/form" %>
       <%end%>
-    </ul>
+      <h3>Comentarios:</h3>
+      <% @article.comments.each do |comment| %>
+      <div class="media mb-4">
+        <img class="d-flex mr-3 rounded-circle" src="http://placehold.it/50x50" alt="">
+        <div class="media-body">
+          <h5 class="mt-0"><%=comment.user.email %></h5>
+            <%= comment.body%>
+        </div>
+      </div>
+      <%end%>
+    </div>
+    <!-- Sidebar Widgets Column -->
+    <div class="col-md-4">
+      <!-- Search Widget -->
+      <%= render "partials/searchbar" %>
+      <!-- Categories Widget -->
+      <%= render "partials/categoriesW"%>
+      <!-- Side Widget -->
+      <%= render "partials/sideW" %>
+    </div>
   </div>
-  <%end%>
 </div>

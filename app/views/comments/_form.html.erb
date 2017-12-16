@@ -12,13 +12,17 @@
       </ul>
     </div>
   <% end %>
-
-  <div class="field">
-    <%= form.label :body %><br>
-    <%= form.text_area :body, id: :comment_body %>
-  </div>
-
-  <div class="actions">
-    <%= form.submit %>
-  </div>
+    <div class="card my-4">
+      <h3 class="card-header">Déjanos un comentario:</h3>
+      <div class="card-body">
+        <form>
+          <div class="form-group">
+            <!--<textarea class="form-control" rows="3"></textarea>-->
+            <%= form.text_area :body, id: :comment_body, class: "form-control" %>
+          </div>
+          <!--<button type="submit" class="btn btn-primary">Submit</button>-->
+          <%= form.submit %>
+        </form>
+      </div>
+    </div>
 <% end %>
