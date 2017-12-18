@@ -22,7 +22,7 @@
       <hr>
       <p class="lead"><%= @article.body %></p>
       <%if user_signed_in? %>
-        <% if @article %>
+        <% if current_user.permission_level == 1 %>
           <div>
             <%= link_to "Editar", edit_article_path(@article) %>
           </div>
