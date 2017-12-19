@@ -11,11 +11,12 @@
     </div>
 
     <div>
-      <small>Portada: (750x300px) <%= f.file_field :cover %></small>
+      <small>Portada: (750x300px)</small><br>
+      <%= f.file_field :cover, class:"SelectConver" %>
     </div>
 
-    <div class="field">
-		<h1>Categorías</h1>
+    <div>
+		<small>Categorías</small>
   		<% @categories.each do |category| %>
   			<div class="checkbox">
   				<%= check_box_tag "categories[]", category.id %> <%=category.name %>
