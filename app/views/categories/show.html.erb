@@ -1,13 +1,16 @@
 <p id="notice"><%= notice %></p>
 
+<h1 style="color:<%= @category.color %>"><%= @category.name %></h1>
+<h2>Artículos</h2>
 <p>
-  <strong>Name:</strong>
-  <%= @category.name %>
+  <% @category.articles.each do |article| %>
+    <h3><%=link_to article.title, article %></h3>
+    <%= article.body %>
+  <%end%>
 </p>
-
 <p>
   <strong>Color:</strong>
-  <%= @category.color %>
+
 </p>
 
 <%= link_to 'Edit', edit_category_path(@category) %> |
