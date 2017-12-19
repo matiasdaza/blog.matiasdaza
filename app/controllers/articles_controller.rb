@@ -17,6 +17,7 @@ class ArticlesController < ApplicationController
   #GET /articles/new
   def new
     @article = Article.new
+    @categories = Category.all
   end
 
   #delete /articles/:id
@@ -40,6 +41,7 @@ class ArticlesController < ApplicationController
   #POST /articles
   def create
     @article = current_user.articles.new(article_params)
+    @article.categories = params[:categories]
     if @article.save #Si pasaron las validaciones, redirecciona, sinó, nos devuelve.
       redirect_to @article
     else
@@ -56,7 +58,7 @@ class ArticlesController < ApplicationController
   end
 
   def article_params
-    params.require(:article).permit(:title, :body, :cover)
+    params.require(:article).permit(:title, :body, :cover, :categories)
     #Esto es por seguridad, para que no llenen datos como la cantidad de visitas, que se hace solo.
   end
 

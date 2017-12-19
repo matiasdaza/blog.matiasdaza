@@ -11,8 +11,18 @@
     </div>
 
     <div>
-      <small>Portada:<%= f.file_field :cover %></small>
+      <small>Portada: (750x300px) <%= f.file_field :cover %></small>
     </div>
+
+    <div class="field">
+		<h1>Categorías</h1>
+  		<% @categories.each do |category| %>
+  			<div class="checkbox">
+  				<%= check_box_tag "categories[]", category.id %> <%=category.name %>
+  			</div>
+  		<% end %>
+	  </div>
+
 
     <div class="field">
       <%= f.text_field :body, placeholder: "Escribe aquí el artículo", style:"height:100px", class: "form-control"%>
