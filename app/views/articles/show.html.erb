@@ -13,6 +13,12 @@
       </p>
 
       <hr>
+      <p>Categorías: 
+      <% @article.categories.each do |category| %>
+        <%= link_to category.name, category, style:"color:#{category.color};" %>
+      <%end%>
+      </p>
+      <hr>
 
       <!-- Date/Time -->
       <p><%= @article.user.created_at %></p>

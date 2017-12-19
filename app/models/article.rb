@@ -2,6 +2,8 @@ class Article < ApplicationRecord
   #Al crear el modelo, asocia directamente la tabla como Articles (el modelo en plural)
   belongs_to        :user
   has_many          :comments
+  has_many          :has_categories
+  has_many          :categories, through: :has_categories
 
   validates         :title, presence:true, uniqueness: true
   validates         :body, presence:true, length: {minimum: 20}
