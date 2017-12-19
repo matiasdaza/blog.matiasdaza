@@ -13,7 +13,6 @@
             <%end%> </small>
           </h1><br>
 
-
           <% @article.each do |article| %>
           <!-- Blog Post -->
           <div class="card mb-4">
@@ -21,7 +20,7 @@
             <div class="card-body">
               <h2 class="card-title"><%= link_to article.title, article %></h2>
               <p class="card-text"><%= article.body %></p>
-              <a href="#" class="btn btn-primary">Read More &rarr;</a>
+              <%= link_to "Read More", article, class:"btn btn-primary" %>
               <%if user_signed_in? %>
                 <% if current_user.permission_level == 1 %>
                   <hr><%= link_to "Eliminar", article, method: :delete, data: { confirm: 'Estas seguro que deseas eliminar este artículo?' }%>

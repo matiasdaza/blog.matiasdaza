@@ -13,9 +13,11 @@
       </p>
 
       <hr>
-      <p>Categorías: 
+      <p>Categorías:
       <% @article.categories.each do |category| %>
-        <%= link_to category.name, category, style:"color:#{category.color};" %>
+        <div class ="label" style="margin-right: 5px; background-color:<%=category.color%>">
+          <%= link_to category.name, category%>
+        </div>
       <%end%>
       </p>
       <hr>
