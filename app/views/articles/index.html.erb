@@ -19,7 +19,8 @@
             <%= image_tag article.cover.url(:thumb) %>
             <div class="card-body">
               <h2 class="card-title"><%= link_to article.title, article %></h2>
-              <p class="card-text"><%= truncate(article.body, length:50) %></p> <!-- Agregamos el raw para que reconozca la nueva forma de texto -->
+              <!-- strip_tags es para eliminar las etiquetas de html en el truncate! -->
+              <p class="card-text"><%= truncate(strip_tags(article.body), length:140, omission: '...(continued)') %></p> <!-- Agregamos el raw para que reconozca la nueva forma de texto -->
               <%= link_to "Read More", article, class:"btn btn-primary" %>
               <%if user_signed_in? %>
                 <% if current_user.is_admin? %>

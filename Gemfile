@@ -22,11 +22,13 @@ gem 'devise' #Para la autentificación de usuario
 gem 'jquery-turbolinks'
 gem 'jquery-rails'
 
+
 gem 'paperclip'
 gem 'aasm'
 gem 'will_paginate'
 gem 'will_paginate-bootstrap' #Para dar estilo
 gem 'ckeditor' #Para agregar un editor WYSIWYG
+
 # Use CoffeeScript for .coffee assets and views
 gem 'coffee-rails', '~> 4.2'
 # Turbolinks makes navigating your web application faster. Read more: https://github.com/turbolinks/turbolinks
