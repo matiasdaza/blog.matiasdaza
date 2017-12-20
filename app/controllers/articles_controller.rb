@@ -2,7 +2,9 @@ class ArticlesController < ApplicationController
 
   before_action :authenticate_user!, except: [:show, :index] #Para autenticar usuario
   before_action :set_article, except: [:index, :new, :create] #Para reutilizar lo contenido en set_article
-
+  #Para los permisos de usuario.
+  before_action :authenticate_editor!, only: [:new, :create, :update]
+  before_action :authenticate_admin!, only: [:destroy]
 
   #/articles
   def index

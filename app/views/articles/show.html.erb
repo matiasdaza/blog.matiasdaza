@@ -30,7 +30,7 @@
       <hr>
       <p class="lead"><%= @article.body %></p>
       <%if user_signed_in? %>
-        <% if current_user.permission_level == 1 %>
+        <% if current_user.is_editor? %>
           <div>
             <%= link_to "Editar", edit_article_path(@article) %>
           </div>
@@ -43,7 +43,7 @@
       <div class="media mb-4">
         <img class="d-flex mr-3 rounded-circle" src="http://placehold.it/50x50" alt="">
         <div class="media-body">
-          <h5 class="mt-0"><%=comment.user.email %></h5>
+          <h5 class="mt-0"><%=comment.user.name %></h5>
             <%= comment.body%>
         </div>
       </div>

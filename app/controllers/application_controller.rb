@@ -5,7 +5,17 @@ class ApplicationController < ActionController::Base
   before_action :configure_permitted_parameters, if: :devise_controller?
   before_action :set_categoires
 
+  #Esto es para tener metodos a nivel del controlador, para saber si un usuario está
+  #Logeado y tiene los permisos necesarios.
   protected
+
+  def authenticate_editor!
+  	redirect_to root_path unless user_signed_in? && current_user.is_editor?
+  end
+
+  def authenticate_admin!
+  	redirect_to root_path unless user_signed_in? && current_user.is_admin?
+  end
 
   def configure_permitted_parameters
       #Forma para Rails 5, antes se usaba for en vez de permit

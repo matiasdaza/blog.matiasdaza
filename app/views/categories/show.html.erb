@@ -20,7 +20,7 @@
             <p class="card-text"><%= article.body %></p>
             <%= link_to "Read More", article, class:"btn btn-primary" %>
             <%if user_signed_in? %>
-              <% if current_user.permission_level == 1 %>
+              <% if current_user.is_admin? %>
                 <hr><%= link_to "Eliminar", article, method: :delete, data: { confirm: 'Estas seguro que deseas eliminar este artículo?' }%>
               <% end %></p>
           <%end %>
