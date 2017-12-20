@@ -28,7 +28,7 @@
       <hr>
         <%= image_tag @article.cover.url(:thumb), class: "img-fluid rounded" %>
       <hr>
-      <p class="lead"><%= @article.body %></p>
+      <p class="lead"><%= raw @article.body %></p> <!-- Agregamos el raw para que reconozca la nueva forma de texto -->
       <%if user_signed_in? %>
         <% if current_user.is_editor? %>
           <div>

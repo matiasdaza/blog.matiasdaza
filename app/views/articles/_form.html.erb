@@ -26,7 +26,8 @@
 
 
     <div class="field">
-      <%= f.text_field :body, placeholder: "Escribe aquí el artículo", style:"height:100px", class: "form-control"%>
+      <!-- Cambioamos el text_field por fedecto por el de cktext_area -->
+      <%= f.cktext_area :body, placeholder: "Escribe aquí el artículo", style:"height:100px", class: "form-control"%>
     </div>
 
     <div class="field">
