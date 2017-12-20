@@ -13,6 +13,13 @@
         <li><%= link_to "Blog", articles_path%></li>
         <li><a href="#">About me</a></li>
         <li><a href="#">Contact</a></li>
+        <% if user_signed_in? && current_user.permission_level >= 2%>
+          <li><%= link_to "Nuevo post", "/articles/new"%></li>
+        <% end %>
+        <% if user_signed_in? && current_user.permission_level == 3%>
+          <li><%= link_to "Dashboard", "/dashboard"%></li>
+        <% end %>
+
       </ul>
       <ul class="nav navbar-nav navbar-right">
         <% if @article or @comments %>
