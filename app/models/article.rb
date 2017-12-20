@@ -1,4 +1,6 @@
 class Article < ApplicationRecord
+  include AASM
+
   #Al crear el modelo, asocia directamente la tabla como Articles (el modelo en plural)
   belongs_to        :user
   has_many          :comments, dependent: :delete_all
@@ -23,6 +25,20 @@ class Article < ApplicationRecord
 
   def update_visits_count
     self.update(visits_count: self.visits_count + 1)
+  end
+
+#Esta sintaxis es de la gema AASM!
+  aasm column: "state" do
+  	state :in_draft, initial: true
+  	state :published
+
+  	event :publish do
+  		transitions from: :in_draft, to: :published
+  	end
+
+  	event :unpublish do
+  		transitions from: :published, to: :in_draft
+  	end
   end
 
   private
