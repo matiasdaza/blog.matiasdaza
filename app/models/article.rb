@@ -1,9 +1,11 @@
 class Article < ApplicationRecord
   #Al crear el modelo, asocia directamente la tabla como Articles (el modelo en plural)
   belongs_to        :user
-  has_many          :comments
-  has_many          :has_categories
-  has_many          :categories, through: :has_categories
+  has_many          :comments, dependent: :delete_all
+  has_many          :has_categories, dependent: :delete_all
+  has_many          :categories, through: :has_categories, dependent: :delete_all
+
+  #Sin el dependent: :delete_all no se pueden borrar, ya que da error de FK
 
   validates         :title, presence:true, uniqueness: true
   validates         :body, presence:true, length: {minimum: 20}

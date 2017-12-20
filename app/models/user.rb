@@ -7,8 +7,8 @@ class User < ApplicationRecord
 
   before_create     :set_permission_level #Para asignar a todos los nuevos usuarios con el Rol básico
 
-  has_many :articles
-  has_many :comments
+  has_many :articles, dependent: :delete_all
+  has_many :comments, dependent: :delete_all
 
   include PermissionsConcern
 
