@@ -24,6 +24,8 @@ gem 'jquery-rails'
 
 gem 'paperclip'
 gem 'aasm'
+gem 'will_paginate'
+gem 'will_paginate-bootstrap' #Para dar estilo
 
 # Use CoffeeScript for .coffee assets and views
 gem 'coffee-rails', '~> 4.2'

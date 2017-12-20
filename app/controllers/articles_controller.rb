@@ -8,7 +8,7 @@ class ArticlesController < ApplicationController
 
   #/articles
   def index
-    @article = Article.publicados.ultimos #Esto viene del modelo!
+    @article = Article.paginate(page: params[:page], per_page:2 ).publicados.ultimos #Esto viene del modelo!
     #Index tendrá todos los registros de la tabla articles
     #Con el arroba lo puede usar tanto la vista como el controlador, si no lo tuviera sería solo del controlador.
   end

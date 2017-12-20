@@ -20,7 +20,7 @@ class Article < ApplicationRecord
   validates_attachment_content_type :cover, content_type: /\Aimage\/.*\Z/#por seguridad
 
   scope :publicados, ->{ where(state: "published")} #Para que muestre solo los publicados
-  scope :ultimos, ->{ order("created_at DESC").limit(10)} #Los últimos que se crearon primero, solo 10 últimos
+  scope :ultimos, ->{ order("created_at DESC")} #Los últimos que se crearon primero, solo 10 últimos
 
   def categories=(value) #Custom setter
 		@categories = value

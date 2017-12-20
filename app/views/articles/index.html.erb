@@ -35,7 +35,8 @@
           <% end %>
 
           <!-- Pagination -->
-          <%= render "partials/pagination" %>
+          <%=will_paginate @article, renderer: BootstrapPagination::Rails  %>
+
 
         </div>
 
