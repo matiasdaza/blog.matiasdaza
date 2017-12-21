@@ -14,11 +14,17 @@
         <li><a href="#">About me</a></li>
         <li><a href="#">Contact</a></li>
         <% if user_signed_in? && current_user.permission_level >= 2%>
-          <li><%= link_to "Nuevo post", "/articles/new"%></li>
-        <% end %>
-        <% if user_signed_in? && current_user.permission_level == 3%>
-          <li><%= link_to "Dashboard", "/dashboard"%></li>
-        <% end %>
+        <li class="dropdown">
+          <a class="dropdown-toggle" data-toggle="dropdown" href="#">Admin</a>
+          <ul class="dropdown-menu">
+            <% if user_signed_in? && current_user.permission_level == 3%>
+              <li><%= link_to "Dashboard", "/dashboard"%></li>
+              <li><%= link_to "Nueva categoría", "/categories/new"%></li>
+            <% end %>
+            <li><%= link_to "Nuevo post", "/articles/new"%></li>
+          </ul>
+        </li>
+        <%end%>
 
       </ul>
       <ul class="nav navbar-nav navbar-right">

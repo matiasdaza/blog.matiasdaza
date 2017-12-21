@@ -29,6 +29,7 @@
         <%= image_tag @article.cover.url(:thumb), class: "img-fluid rounded" %>
       <hr>
       <p class="lead"><%= raw @article.body %></p> <!-- Agregamos el raw para que reconozca la nueva forma de texto -->
+      <hr>
       <%if user_signed_in? %>
         <% if current_user.is_editor? %>
           <div>
@@ -37,15 +38,20 @@
           <hr>
         <%end%>
         <%= render "comments/form" %>
+      <%else%>
+      <br>
+      <h4 class="alert alert-danger">! Para poder comentar debes registrarte <h4><br>
       <%end%>
-      <h3>Comentarios:  </h3>
+      <h3>Comentarios:  </h3><br>
       <% @article.comments.each do |comment| %>
       <div class="media mb-4">
         <img class="d-flex mr-3 rounded-circle" src="<%=comment.user.avatar%>" alt="">
         <div class="media-body">
           <h5 class="mt-0"><%=comment.user.name %></h5>
             <%= comment.body%> <small class="estado mt-0"> Hace <%=time_ago_in_words(comment.created_at)%><br>
-              <%= link_to 'Borrar', [comment.article, comment], method: :delete, data: { confirm: 'Estas seguro que deseas eliminar este comentario?' } %></small>
+              <% if user_signed_in? and comment.user.id == current_user.id%>
+                <%= link_to 'Borrar', [comment.article, comment], method: :delete, data: { confirm: 'Estas seguro que deseas eliminar este comentario?' } %>
+              <%end%></small>
         </div>
       </div>
       <%end%>
