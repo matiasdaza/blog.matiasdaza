@@ -122,6 +122,7 @@ GEM
       cocaine (~> 0.5.5)
       mime-types
       mimemagic (~> 0.3.0)
+    pg (0.21.0)
     public_suffix (3.0.1)
     puma (3.11.0)
     rack (2.0.3)
@@ -227,6 +228,7 @@ DEPENDENCIES
   jquery-turbolinks
   listen (>= 3.0.5, < 3.2)
   paperclip
+  pg
   puma (~> 3.7)
   rails (~> 5.1.4)
   sass-rails (~> 5.0)
