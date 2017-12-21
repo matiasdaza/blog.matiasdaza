@@ -38,13 +38,14 @@
         <%end%>
         <%= render "comments/form" %>
       <%end%>
-      <h3>Comentarios:</h3>
+      <h3>Comentarios:  </h3>
       <% @article.comments.each do |comment| %>
       <div class="media mb-4">
-        <img class="d-flex mr-3 rounded-circle" src="http://placehold.it/50x50" alt="">
+        <img class="d-flex mr-3 rounded-circle" src="<%=comment.user.avatar%>" alt="">
         <div class="media-body">
           <h5 class="mt-0"><%=comment.user.name %></h5>
-            <%= comment.body%>
+            <%= comment.body%> <small class="estado mt-0"> Hace <%=time_ago_in_words(comment.created_at)%><br>
+              <%= link_to 'Borrar', [comment.article, comment], method: :delete, data: { confirm: 'Estas seguro que deseas eliminar este comentario?' } %></small>
         </div>
       </div>
       <%end%>
