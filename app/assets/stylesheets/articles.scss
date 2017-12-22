@@ -1820,7 +1820,7 @@ pre code {
   background-color: #fff;
   border-color: #80bdff;
   outline: none;
-  box-shadow: 0 0 0 0.2rem rgba(0, 123, 255, 0.25);
+  box-shadow: 0 0 0 0.2rem #97232F;
 }
 
 .form-control::-webkit-input-placeholder {
@@ -2240,7 +2240,7 @@ select.form-control-lg:not([size]):not([multiple]), .input-group-lg > select.for
 
 .btn:focus, .btn.focus {
   outline: 0;
-  box-shadow: 0 0 0 0.2rem rgba(0, 123, 255, 0.25);
+  box-shadow: 0 0 0 0.2rem #97232F;
 }
 
 .btn.disabled, .btn:disabled {
@@ -2260,8 +2260,8 @@ fieldset[disabled] a.btn {
   font-size: 1.5rem;
   width: auto;
   color: #fff;
-  background-color: #4B0A09;
-  border-color: #4B0A09;
+  background-color: #97232F;
+  border-color: #97232F;
 }
 
 .btn-primary:hover {
@@ -2271,20 +2271,20 @@ fieldset[disabled] a.btn {
 }
 
 .btn-primary:focus, .btn-primary.focus {
-  box-shadow: 0 0 0 0.2rem rgba(0, 123, 255, 0.5);
+  box-shadow: 0 0 0 0.2rem #97232F;
 }
 
 .btn-primary.disabled, .btn-primary:disabled {
-  background-color: #007bff;
-  border-color: #007bff;
+  background-color: #97232F;
+  border-color: #97232F;
 }
 
 .btn-primary:not([disabled]):not(.disabled):active, .btn-primary:not([disabled]):not(.disabled).active,
 .show > .btn-primary.dropdown-toggle {
   color: #fff;
-  background-color: #0062cc;
-  border-color: #005cbf;
-  box-shadow: 0 0 0 0.2rem rgba(0, 123, 255, 0.5);
+  background-color: #97232F;
+  border-color: #97232F;
+  box-shadow: 0 0 0 0.2rem #97232F;
 }
 
 .btn-secondary {
@@ -3269,7 +3269,7 @@ tbody.collapse.show {
 }
 
 .custom-control-input:focus ~ .custom-control-indicator {
-  box-shadow: 0 0 0 1px #fff, 0 0 0 0.2rem rgba(0, 123, 255, 0.25);
+  box-shadow: 0 0 0 1px #fff, 0 0 0 0.2rem #97232F;
 }
 
 .custom-control-input:active ~ .custom-control-indicator {
