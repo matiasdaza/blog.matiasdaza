@@ -32,7 +32,8 @@
           <%if user_signed_in? %>
             <li><%= link_to "Logout", destroy_user_session_path, method: :delete, class: "fa fa-sign-out" %></li>
           <%else%>
-            <li><%= link_to "Login", new_user_session_path %></li>
+            <li><%= link_to "Log in", new_user_session_path %></li>
+            <li class="btn-light sign_up"><%= link_to "Sign up", "users/sign_up" %></li>
           <%end%>
         <%end%>
       </ul>
