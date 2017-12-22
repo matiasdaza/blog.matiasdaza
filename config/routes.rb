@@ -11,6 +11,7 @@ Rails.application.routes.draw do
   root 'welcome#index'
 
   get "/dashboard", to: "welcome#dashboard"
+  get "/about_me", to: "welcome#about_me"
   put "/articles/:id/publish", to: "articles#publish"
 
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html

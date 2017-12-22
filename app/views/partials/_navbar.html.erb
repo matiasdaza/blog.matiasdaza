@@ -11,7 +11,7 @@
       <ul class="nav navbar-nav">
         <li class="home"><%= link_to "Matías Daza", root_path %></li>
         <li><%= link_to "Blog", articles_path%></li>
-        <li><a href="#">About me</a></li>
+        <li><%= link_to "About me", "/about_me" %></li>
         <li><a href="#">Contact</a></li>
         <% if user_signed_in? && current_user.permission_level >= 2%>
         <li class="dropdown">
@@ -33,7 +33,7 @@
             <li><%= link_to "Logout", destroy_user_session_path, method: :delete, class: "fa fa-sign-out" %></li>
           <%else%>
             <li><%= link_to "Log in", new_user_session_path %></li>
-            <li class="btn-light sign_up"><%= link_to "Sign up", "users/sign_up" %></li>
+            <li class="btn btn-primary" style="with:auto"><%= link_to "Sign up", "users/sign_up" %></li>
           <%end%>
         <%end%>
       </ul>

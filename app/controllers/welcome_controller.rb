@@ -7,4 +7,7 @@ class WelcomeController < ApplicationController
   def dashboard
 		@article = Article.all
 	end
+
+  def about_me
+  end
 end

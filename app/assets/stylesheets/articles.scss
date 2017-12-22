@@ -1,9 +1,4 @@
-/*!
- * Bootstrap v4.0.0-beta.2 (https://getbootstrap.com)
- * Copyright 2011-2017 The Bootstrap Authors
- * Copyright 2011-2017 Twitter, Inc.
- * Licensed under MIT (https://github.com/twbs/bootstrap/blob/master/LICENSE)
- */
+
 :root {
   --blue: #007bff;
   --indigo: #6610f2;
@@ -2265,14 +2260,14 @@ fieldset[disabled] a.btn {
   font-size: 1.5rem;
   width: auto;
   color: #fff;
-  background-color: #007bff;
-  border-color: #007bff;
+  background-color: #4B0A09;
+  border-color: #4B0A09;
 }
 
 .btn-primary:hover {
   color: #fff;
-  background-color: #0069d9;
-  border-color: #0062cc;
+  background-color: #97232F;
+  border-color: #97232F;
 }
 
 .btn-primary:focus, .btn-primary.focus {
@@ -6436,7 +6431,7 @@ a.bg-dark:focus, a.bg-dark:hover {
 
 .mb-5,
 .my-5 {
-  margin-bottom: 3rem !important;
+  margin-bottom: .5rem !important;
 }
 
 .ml-5,
@@ -7719,11 +7714,11 @@ a.bg-dark:focus, a.bg-dark:hover {
 }
 
 .text-primary {
-  color: #007bff !important;
+  color: #97232F !important;
 }
 
 a.text-primary:focus, a.text-primary:hover {
-  color: #0062cc !important;
+  color: #97232F!important;
 }
 
 .text-secondary {
